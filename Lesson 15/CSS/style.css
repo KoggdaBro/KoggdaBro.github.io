@@ -1,0 +1,15 @@
+.text--bold{
+  color: blueviolet;
+  border: 3px solid #590cdf;
+}
+.line{
+color: #11e5b4;
+}
+.child{
+  color: #52c74e;
+  border: 3px solid #0f5e03;
+}
+#blog {
+  color: #f40909;
+  
+}
