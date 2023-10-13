@@ -1,0 +1,38 @@
+body {
+    background: #262628;
+}
+
+p {
+    color: #7b7979;
+}
+
+.container {
+    width: 100%;
+    max-width: 50%;
+    height: 100px;
+    position: fixed;
+    top: 538px;
+    right: 50px;
+}
+
+.block__rectangle {
+    min-height: 100px;
+    width: 100%;
+    border-radius: 10px;
+    background: white;
+    position: relative;
+    /* top: 153px; */
+}
+
+.block__circle {
+    min-height: 100px;
+    width: 100px;
+    max-width: 50%;
+    border-radius: 50%;
+    background: red;
+    position: relative;
+    top: -149px;
+    left: auto;
+    right: -50px;
+    bottom: auto;
+}
