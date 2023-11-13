@@ -1,0 +1,416 @@
+span {
+    color: #479147;
+}
+
+.create-line {
+    width: auto;
+    border-top: 3px solid #32a1ce;
+}
+
+/* -------------Lesson68_73----------------- */
+/* Общие эллементы */
+:root {
+    --white-text: #F8FCFF;
+    --accent-text: #1D6FB6;
+}
+
+body {
+    font-family: "Montserrat", "Arial", sans-serif;
+    line-height: calc(20px / 16px);
+    color: #25282B;
+    background: var(--white-text);
+}
+
+.container {
+    max-width: 1230px;
+    margin: 0 auto;
+    padding: 0 15px;
+    height: 100%;
+}
+
+/* ======================header========================== */
+.header {
+    min-height: 108px;
+    /* На случай добавления пунктов делаем min-height чтобы header автоматически увиличивался */
+    line-height: 1.5;
+    /* для шрифта */
+}
+
+.header__inner {
+    min-height: 108px;
+    /* Для того чтобы растягивался на нужную нам высоту 108px */
+    display: grid;
+    /* превращаем в grid чобы спозеционировать эллементы внутри него */
+    grid-template-columns: 1fr auto 1fr;
+    /* чтобы коллонки слева м справа были одинаковыми а по середине была автоматическая т.к там logo */
+    gap: 15px;
+    /* отступы не позволяющие эллементам не прилипать к друг другу при уменьшении */
+    align-content: center;
+    /* все эллемнты распологаются по центру */
+    align-items: center;
+    /* длятого чтобы эллементы распологались по центру ячеек нашего грида */
+}
+
+.header__logo {
+    max-width: 54px;
+    /* максимальная ширина 54px (Как на макете)чтобы он не становился больше при добавлении изображения лутшего качества чтобы вёрстка не поехала.*/
+}
+
+.nav__list {
+    display: flex;
+    /* flexbox потому что все эллементы должны быть по горизонтале */
+    gap: 10px 30px;
+    /* gap: 10px 30px; отступы  30px между колонками 10px между строками */
+    flex-wrap: wrap;
+    /* Для того чтобы эллемент перепрыгивал вниз */
+}
+
+.header__socials {
+    justify-content: end;
+    /* Выравнивает блок по правому краю */
+}
+
+.socials {
+    display: flex;
+    /* flexbox потому что все эллементы должны быть по горизонтале */
+    gap: 10px 30px;
+    /* gap: 10px 30px; отступы  30px между колонками 10px между строками */
+    flex-wrap: wrap;
+    /* Для того чтобы эллемент перепрыгивал вниз */
+}
+
+/* --------------------main------------------------- */
+
+.hero {
+    padding: 120px 0px;
+    /* отступы 120px сверху и снизу */
+    line-height: 1.5;
+    /* line-height: 1.5; 1.5 умножить на font-size */
+    color: var(--white-text);
+    position: relative;
+    /* Для размещения видео*/
+}
+
+.hero__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero__title {
+    font-weight: 600;
+    font-size: 52px;
+    margin-bottom: 30px;
+}
+
+.hero__list {
+    font-size: 24px;
+    margin-bottom: 40px;
+    /* margin-bottom: 40px; отступ между кнопкой и списком */
+}
+
+.hero__list-item {
+    display: flex;
+    /* display: flex; строчный в блочный чтобы пропал отступ */
+    gap: 18px;
+    margin-bottom: 15px;
+    align-items: center;
+    transition: all .5ms;
+    /* Transition позволяет определять переходное состояние между двумя состояниями элемента. */
+}
+
+.hero__list-item:last-child {
+    margin-bottom: 0px;
+    /* .hero__list-item:last-child обращение к последнему эллементу в списке */
+}
+
+/* :hover псевдокласс срабатывает, когда пользователь наводит на элемент мышью */
+.hero__list-item:hover {
+    color: var(--accent-text);
+}
+
+.hero__list-item path {
+    transition: all .5ms;
+    /*transition для svg  */
+}
+
+.hero__list-item:hover path {
+    fill: var(--accent-text);
+    /* перекрашивает svg */
+}
+
+/* Видео */
+.hero__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    /* z-index: -1; видео проваливается за своего родителя */
+}
+
+.hero__video video {
+    width: 100%;
+    height: 100%;
+    /* ------------------------ */
+    object-fit: cover;
+    /* object-fit: cover; Размер заменяемого содержимого сохраняется таким образом,
+    чтобы сохранить соотношение сторон, заполняя при этом все поле содержимого элемента.
+    Если пропорции объекта не совпадают с пропорциями его рамки, то объект будет обрезан по размеру. */
+}
+
+/* Псевдоэлемент */
+.hero__video::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #102E49CC;
+}
+
+/* Кнопка по бэм */
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Для расположение текста в центре */
+
+    font-size: 16px;
+    font-weight: 500;
+    line-height: calc(20px / 16px);
+    color: var(--accent-text);
+    /* ---------------------- */
+    height: 56px;
+    /* высота кнопки */
+    width: 100%;
+    /* Ширина чтобы кнопка растянулась на веь блок */
+    max-width: 288px;
+    /* Ширина кнопки для адаптива если блоки будут сужатся чтобы кнопка не мешала их сужению своим фексированным значением*/
+    background: #D0DCE7;
+    border-radius: 100px;
+    /* Дублируем эллементы потому что блок.Можем вставить в другое место по БЭМ */
+}
+
+.button:hover {
+    color: var(--white-text);
+    background: #83ADD3;
+    transition: all .5ms;
+}
+
+/* ======================main (Тело)============================ */
+
+.main__general {
+    padding: 120px 0;
+}
+
+.main__wraper {
+    /* flexbox */
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    /* gap работает как для грида так и для флексбокса */
+    gap: 30px;
+
+}
+
+.main__saidebar{
+    position: sticky;
+    top: 5vh;
+}
+
+.main__body {
+    width: 100%;
+    /* Для растягивания изображения на весь gallery__img*/
+    max-width: 792px;
+    /* Максимальная ширина */
+}
+
+.main__gallery {
+    margin-bottom: 120px;
+}
+
+/* -------------------------------------------------- */
+.saidebar {
+    font-weight: 500;
+    border: 2px solid #D0DCE7;
+    padding: 30px;
+    max-width: 282px;
+    width: 100%;
+    /* max-width: 282px; width: 100%; чтобы не становился меньше указанного размера*/
+    min-height: 60vh;
+}
+
+.saidebar__item {
+    margin-bottom: 20px;
+    /* отступ эллементов в 20px */
+}
+
+.saidebar__item:last-child {
+    margin-bottom: 0;
+}
+
+/* =======================Галерея============================== */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* grid-template-columns: repeat(4, 1fr); четыре колонки равные по ширине */
+    gap: 24px;
+    /* отступы по высоте и по ширине */
+    grid-auto-flow: dense;
+    /* !!!!grid-auto-flow: dense; закрывает все лишние пространства внутри грида */
+    font-weight: 500;
+    /* все дочерние эллеметы будут перенимать эту жирность и высоту строки */
+    color: var(--white-text);
+}
+
+.gallery__img {
+    display: block;
+    /* На всякий случай "a" ссылки строчные переписываем display: block; (блочные)*/
+    position: relative;
+    overflow: hidden;
+    /* overflow: hidden; чтобы элементы не были видны */
+    padding-bottom: 100%;
+}
+
+.gallery__img img {
+    /* img - контекстный селектор */
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* -----------Для адаптивности изображения под разные размеры---------------- */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+}
+
+/* Левый квадрат */
+.gallery__img--large-left {
+    grid-column: 1/3;
+    /* grid-column: 1/3; растягиваем эллемент от 1 по 3 */
+    grid-row: span 2;
+    /* grid-row: span 2; говорит что это эллемент растягивается на 2 ячейки по высоте.Не будет говорить на какие именно. */
+}
+
+/* Правый квадрат */
+.gallery__img--large-right {
+    grid-column: -1/-3;
+    /* grid-column: -1/-3; отзеркаливаем*/
+    grid-row: span 2;
+    /* grid-row: span 2; говорит что это эллемент растягивается на 2 ячейки по высоте.Не будет говорить на какие именно. */
+}
+
+.gallery__hint {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #1D6FB6B2;
+    height: 53px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transform: translateY(100%);
+    /* пермещаем этот эллемент по оси Y на 100% (53px) потомучто высота этого эллемента height: 53px; */
+    opacity: 0;
+    /* opacity: 0; с начала полностью прозрачная*/
+    transition: all .5s;
+}
+
+.gallery__img:hover .gallery__hint {
+    transform: translateY(0%);
+    opacity: 1;
+    /* opacity: 1; когда наводимся становится полностью непрозрачной */
+}
+
+.gallery__img--large-left .gallery__hint,
+.gallery__img--large-right .gallery__hint {
+    height: 103px;
+    font-size: 24px;
+    line-height: 29px;
+}
+
+/* ============================products================================ */
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.products__item-img {
+    position: relative;
+    padding-bottom: 62%;
+}
+
+.products__item-img img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* -----------Для адаптивности изображения под разные размеры---------------- */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+}
+
+.products__item-badge {
+    position: absolute;
+    left: 0;
+    top: 12.6%;
+    border-radius: 0px 100px 100px 0px;
+    background: var(--white-text);
+    padding: 18px 15px;
+    min-width: 33.9%;
+    text-align: center;
+    color: var(--accent-text);
+    font-weight: 500;
+
+    animation: badge-action 2s infinite alternate;
+}
+
+@keyframes badge-action {
+    0% {
+        min-width: 33.9%;
+    }
+
+    66.666% {
+        min-width: 33.9%;
+    }
+
+    100% {
+        min-width: 37.3%;
+    }
+}
+
+.products__item-body {
+    border: 1px solid #D0DCE7;
+    border-top: none;
+    padding: 30px 15px;
+}
+
+.products__item-button {
+    margin: 0 auto;
+}
+
+/* ======================footer================================ */
+
+.footer {
+    padding: 30px 0;
+    background: #788088;
+    color: var(--white-text);
+    text-align: center;
+}
+
+.footer__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
